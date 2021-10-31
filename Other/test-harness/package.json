@@ -1,0 +1,18 @@
+{
+  "name": "testharness",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "^24.0.0",
+    "@types/jsonstream": "^0.8.30",
+    "@types/node": "^12.0.0",
+    "JSONStream": "^1.3.5",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "referee-test": "node testBuild/Other/test-harness/refereeTest.js",
+    "board-test": "node testBuild/Other/test-harness/boardTest.js",
+    "state-test": "node testBuild/Other/test-harness/stateTest.js",
+    "build-test-harness": "tsc"
+  }
+}

@@ -1,0 +1,49 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Strategy_1 = require("./Strategy");
+/**
+ * The HousePlayer is a Player that utilizes the strategy described in ./Strategy
+ * The HousePlayer places penguins in a zig-zag pattern, and makes moves based on the minimaxMove
+ * function
+ *
+ * For further reference look at Common/src/Interface/Player-Interface
+ */
+exports.HousePlayer = {
+    /**
+     * the default name of the houseplayer, will be modified before games begin
+     */
+    username: 'default',
+    /**
+     * Age of the player
+     */
+    age: 20,
+    /**
+     * Referee tells the player it is their turn to place a penguin on the board.
+     * The Player returns the position they wish to add a penguin to.
+     *
+     * To see coordinate system refer to: ../Model/Board
+     *
+     * @param state the player is given state to make their move off of
+     * @return {row: number, column: number} the position to move a penguin to
+     */
+    getPenguinPlacement: (state) => Strategy_1.Strategy.penguinPlacements(state),
+    /**
+     * Referee tells the player that it is their turn, it is up to the player
+     * to determine their next move
+     *
+     * To see coordinate system refer to: ../Model/Board
+     *
+     * @param state the player is given state to make their move off of
+     * @return [{row: number, column: number}, {row: number, column: number}] which represents
+     *         the position to move a penguin from, and the position to move a penguin to
+     */
+    getPenguinMove: (state) => Strategy_1.Strategy.minimaxMove(state, state.penguinTeams.length * 3),
+    // Our player does not care about reports from the referee unless
+    // they must place a penguin or make a move so all of these functions
+    // do nothing
+    gameOver: () => { },
+    somePlayerChangedState: () => { },
+    kickOut: () => { },
+    gameIsStarting: () => { },
+    gameSetupBegins: () => { },
+};

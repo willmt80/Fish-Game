@@ -1,0 +1,9 @@
+module.exports = [
+  ['use-babel-config', '.babelrc'],
+  {
+    jest: (config) => {
+      config.transform['^.+\\.(js|jsx|ts|tsx)$'] = 'babel-jest';
+      return config;
+    },
+  },
+];

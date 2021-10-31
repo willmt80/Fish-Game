@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+echo "Run all Common tests: "
+cd Common && npm run test
+echo "Run all Player tests: "
+cd ../Player && npm run test
+echo "Run all Admin tests: "
+cd ../Admin && npm run test
